@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @kv.key %>
+</p>
+
+<p>
+  <strong>Val:</strong>
+  <%= @kv.val %>
+</p>
+
+<%= link_to 'Edit', edit_kv_path(@kv) %> |
+<%= link_to 'Back', kvs_path %>

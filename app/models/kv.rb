@@ -1,0 +1,2 @@
+class Kv < ApplicationRecord
+end
