@@ -1,0 +1,11 @@
+p
+  strong
+    | Key:
+  = @kv.key
+p
+  strong
+    | Val:
+  = @kv.val
+= link_to 'Edit', edit_kv_path(@kv)
+|  | 
+= link_to 'Back', kvs_path

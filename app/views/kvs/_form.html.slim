@@ -1,0 +1,20 @@
+= form_for(kv) do |f|
+  - if kv.errors.any?
+    #error_explanation
+      h2
+        = pluralize(kv.errors.count, "error")
+        |  prohibited this kv from being saved:
+      ul
+        - kv.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    pre
+      |  web_shield/ip_whitelist: ['127.0.0.1', '192.168.1.1/16'] web_shield/ip_blacklist: ['123.123.123.123/24'] web_shield/path_whitelist: [{"matcher": {"method": ["GET"], "path": "/w/*"}, "limit": 5, "period": 3, "break_shield": true}] web_shield/path_threshold: [{"matcher": {"method": ["GET"], "path": "/api/*"}, "limit": 3, "period": 3}] 
+    = f.label :key
+    = f.text_field :key
+  .field
+    = f.label :val
+    = f.text_area :val
+  .actions
+    = f.submit
