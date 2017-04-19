@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## VARIABLES
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* `RAILS_ENV`: default `production`
+* `SECRET_KEY_BASE`: nil
+* `RAILS_SERVE_STATIC_FILES`: empty, false
+* `RAILS_LOG_TO_STDOUT`: empty, false
+* `MYSQL_HOST`: '127.0.0.1'
+* `MYSQL_PORT`: 3306
+* `MYSQL_USER`: ttty_config
+* `MYSQL_PASSWD`: empty
+* `MYSQL_DB`: ttty_config_prod

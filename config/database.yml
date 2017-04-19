@@ -24,4 +24,10 @@ test:
 
 production:
   <<: *default
+  host: <%= ENV['MYSQL_HOST'] or '127.0.0.1' %>
+  port: <%= ENV['MYSQL_PORT'] or 3306 %>
+  username: <%= ENV['MYSQL_USER'] or 'ttty_config' %>
+  password: <%= ENV['MYSQL_PASSWD'] %>
   database: ttty_config_prod
+  pool: 20
+
