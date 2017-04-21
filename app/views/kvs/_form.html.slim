@@ -10,11 +10,21 @@
             = message
   .field
     pre
-      |  web_shield/ip_whitelist: ['127.0.0.1', '192.168.1.1/16'] web_shield/ip_blacklist: ['123.123.123.123/24'] web_shield/path_whitelist: [{"matcher": {"method": ["GET"], "path": "/w/*"}, "limit": 5, "period": 3, "break_shield": true}] web_shield/path_threshold: [{"matcher": {"method": ["GET"], "path": "/api/*"}, "limit": 3, "period": 3}] 
+      p web_shield/ip_whitelist: ["127.0.0.1", "192.168.1.1/16"]
+      p web_shield/ip_blacklist: ["1.2.3.4', "123.123.123.123/24"]
+      p web_shield/path_whitelist: [{"matcher": {"method": ["GET"], "path": "/w/*"}, "limit": 5, "period": 3, "break_shield": true}]
+
+      p
+        | web_shield/path_threshold: [
+        |  {"matcher": {"method": ["GET"], "path": "/api/*"}, "limit": 10, "period": 5},
+        |  {"matcher": {"method": ["PUT", "POST"], "path": "/api/*"}, "limit": 5, "period": 3}
+        | ] 
+
+  .field
     = f.label :key
     = f.text_field :key
   .field
     = f.label :val
-    = f.text_area :val
+    = f.text_area :val, rows: 10, cols: 100
   .actions
     = f.submit
