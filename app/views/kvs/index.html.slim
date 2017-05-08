@@ -1,6 +1,6 @@
 h1
   | Key-Val
-table
+table.table
   thead
     tr
       th
@@ -22,4 +22,4 @@ table
         td
           = link_to 'Destroy', kv, method: :delete, data: { confirm: 'Are you sure?' }
 br
-= link_to 'New Kv', new_kv_path
+= link_to 'New Kv', new_kv_path, class: 'btn btn-default'

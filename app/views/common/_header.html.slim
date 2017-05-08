@@ -1,0 +1,14 @@
+nav.navbar.navbar-default
+  .container-fluid
+    .navbar-header
+      a.navbar-brand href=root_path TTTY Manager
+
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+
+        
+      ul.nav.navbar-nav.navbar-right
+        - if current_user
+          li = link_to current_user.email, edit_user_registration_path
+          li = link_to "Logout", destroy_user_session_path, method: :delete
+

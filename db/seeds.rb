@@ -8,3 +8,11 @@
 
 User.create(email: 'jzxie@wind.com.cn', password: 'admin123')
 
+%w{
+  web_shield/ip_whitelist
+  web_shield/ip_blacklist
+  web_shield/path_whitelist
+  web_shield/path_threshold
+}.each do |key|
+  Kv.find_or_create_by!(key: key)
+end

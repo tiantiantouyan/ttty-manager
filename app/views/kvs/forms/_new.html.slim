@@ -1,0 +1,20 @@
+.form-group
+  pre
+    p web_shield/ip_whitelist: ["127.0.0.1", "192.168.1.1/16"]
+    p web_shield/ip_blacklist: ["1.2.3.4', "123.123.123.123/24"]
+    p web_shield/path_whitelist: [{"matcher": {"method": ["GET"], "path": "/w/*"}, "limit": 5, "period": 3, "break_shield": true}]
+
+    p
+      | web_shield/path_threshold: [
+      |  {"matcher": {"method": ["GET"], "path": "/api/*"}, "limit": 10, "period": 5},
+      |  {"matcher": {"method": ["PUT", "POST"], "path": "/api/*"}, "limit": 5, "period": 3}
+      | ] 
+
+.form-group
+  = f.label :key
+  = f.text_field :key, class: 'form-control'
+
+.form-group
+  = f.label :val
+  = f.text_area :val, rows: 10, class: 'form-control'
+

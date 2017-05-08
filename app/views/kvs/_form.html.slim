@@ -8,23 +8,14 @@
         - kv.errors.full_messages.each do |message|
           li
             = message
-  .field
-    pre
-      p web_shield/ip_whitelist: ["127.0.0.1", "192.168.1.1/16"]
-      p web_shield/ip_blacklist: ["1.2.3.4', "123.123.123.123/24"]
-      p web_shield/path_whitelist: [{"matcher": {"method": ["GET"], "path": "/w/*"}, "limit": 5, "period": 3, "break_shield": true}]
 
-      p
-        | web_shield/path_threshold: [
-        |  {"matcher": {"method": ["GET"], "path": "/api/*"}, "limit": 10, "period": 5},
-        |  {"matcher": {"method": ["PUT", "POST"], "path": "/api/*"}, "limit": 5, "period": 3}
-        | ] 
+  - if @kv.key.present?
+    - if lookup_context.exists?(@kv.key, ['kvs/forms'], true)
+      = render "kvs/forms/#{@kv.key}", f: f
+    - else
+      = render 'kvs/forms/default', f: f
+  - else
+    = render 'kvs/forms/new', f: f
 
-  .field
-    = f.label :key
-    = f.text_field :key
-  .field
-    = f.label :val
-    = f.text_area :val, rows: 10, cols: 100
   .actions
-    = f.submit
+    = f.submit class: 'btn btn-primary'

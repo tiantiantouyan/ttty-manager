@@ -7,12 +7,10 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    = link_to "Edit User", edit_user_registration_path
-    ' |
-    = link_to "Logout", destroy_user_session_path, method: :delete
+    = render 'common/header'
 
-    p#notice.notice
-      = notice
-    p#alert.alert
-      = alert
-    = yield
+    p#notice.notice = notice
+    p#alert.alert = alert
+
+    .main.col-md-10.col-md-offset-1
+      = yield
