@@ -6,7 +6,7 @@ WORKDIR /ttty-manager
 ADD ./ /ttty-manager
 
 RUN bundle install --without test development
-RUN SECRET_KEY_BASE=x bundle exec rake assets:precompile RAILS_ENV=production
+RUN bundle exec rake assets:precompile RAILS_ENV=production
 
 ENTRYPOINT ./boot
 
